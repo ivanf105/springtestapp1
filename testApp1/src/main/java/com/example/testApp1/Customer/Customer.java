@@ -1,29 +1,22 @@
 package com.example.testApp1.Customer;
 
+import javax.annotation.processing.Generated;
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Customer {
-    public Customer(Long id) {
-        this.id = id;
-    }
 
-    public Customer() {
-    }
-    public Customer(Long id, String email, String phoneNumber) {
-        this.id = id;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-    }
-    //doesn't have id because DB will generate id automatically
-    public Customer(String email, String firstName, String lastName, Integer age, String address, String state, Integer zipCode, String phoneNumber) {
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.address = address;
-        this.state = state;
-        this.zipCode = zipCode;
-        this.phoneNumber = phoneNumber;
-    }
-
+    @Id
+    @SequenceGenerator(
+            name="customer_sequence",
+            sequenceName="customer_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy= GenerationType.SEQUENCE,
+            generator="customer_sequence"
+    )
     private Long id;
     private String email;
     private String firstName;
@@ -111,5 +104,28 @@ public class Customer {
                 ", zipCode=" + zipCode +
                 ", phoneNumber=" + phoneNumber +
                 '}';
+    }
+
+    public Customer(Long id) {
+        this.id = id;
+    }
+
+    public Customer() {
+    }
+    public Customer(Long id, String email, String phoneNumber) {
+        this.id = id;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+    //doesn't have id because DB will generate id automatically
+    public Customer(String email, String firstName, String lastName, Integer age, String address, String state, Integer zipCode, String phoneNumber) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.address = address;
+        this.state = state;
+        this.zipCode = zipCode;
+        this.phoneNumber = phoneNumber;
     }
 }

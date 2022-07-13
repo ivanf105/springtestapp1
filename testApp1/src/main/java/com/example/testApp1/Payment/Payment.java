@@ -1,6 +1,21 @@
 package com.example.testApp1.Payment;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Payment {
+    @Id
+    @SequenceGenerator(
+            name="payment_sequence",
+            sequenceName = "payment_sequence",
+            allocationSize = 1
+
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "customer_sequence"
+    )
     private Long id;
     private Long profileId;
     private String email;

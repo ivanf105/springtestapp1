@@ -1,19 +1,33 @@
-package com.example.testApp1.Order;
+package com.example.testApp1.Orders;
 
-public class Order {
+import javax.persistence.*;
+
+@Entity
+@Table
+public class Orders {
+    @Id
+    @SequenceGenerator(
+            name="order_sequence",
+            sequenceName = "order_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "order_sequence"
+    )
     private Long id;
     private Long profileId;
     private String profileEmail;
     private String profileNumber;
     private Long wic;
 
-    public Order(Long id) {
+    public Orders(Long id) {
         this.id = id;
     }
 
-    public Order() {
+    public Orders() {
     }
-    public Order(Long id, Long profileId, String profileEmail, String profileNumber, Long wic) {
+    public Orders(Long id, Long profileId, String profileEmail, String profileNumber, Long wic) {
         this.id = id;
         this.profileId = profileId;
         this.profileEmail = profileEmail;
@@ -23,7 +37,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "Orders{" +
                 "id=" + id +
                 ", profileId=" + profileId +
                 ", profileEmail='" + profileEmail + '\'' +

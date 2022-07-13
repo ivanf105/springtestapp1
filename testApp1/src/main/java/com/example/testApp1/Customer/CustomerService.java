@@ -1,5 +1,6 @@
 package com.example.testApp1.Customer;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -7,18 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 public class CustomerService {
+    private final CustomerRepository customerRepository;
+    @Autowired  //dependency injection for customerRepository
+    public CustomerService(CustomerRepository customerRepository) {
+        this.customerRepository= customerRepository;
+    }
+
     public List<Customer> getCustomer(){
-        List<Customer> list = new ArrayList<Customer>();
-
-        list.add(new Customer(
-                1L,
-                "ivan@gmail.com",
-                "7089111234"));
-        list.add(new Customer(
-                1L,
-                "joe@gmail.com",
-                "773131234"));
-
-        return list;
+        //returns list of db records
+        return customerRepository.findAll();
     }
 }

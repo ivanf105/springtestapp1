@@ -16,7 +16,7 @@ public class OrdersController {
         this.ordersService = ordersService;
     }
     @GetMapping
-    @RequestMapping(path="api/v1/order")
+    @RequestMapping(path="api/v1/orders")
     public List<Orders> getOrder(){
         return ordersService.getOrders();
     }

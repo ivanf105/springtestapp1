@@ -18,4 +18,15 @@ public class CustomerService {
         //returns list of db records
         return customerRepository.findAll();
     }
+
+    public void addNewCustomer(Customer customer) {
+        System.out.println(customer);
+        customerRepository.save(customer);
+      }
+
+    public void deleteCustomer(Long id) {
+        if(customerRepository.existsById(id)){
+            customerRepository.deleteById(id);
+        }
+     }
 }

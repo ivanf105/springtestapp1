@@ -14,7 +14,7 @@ public class Payment {
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "customer_sequence"
+            generator = "payment_sequence"
     )
     private Long id;
     private Long profileId;
@@ -58,6 +58,7 @@ public class Payment {
     }
 
     public void setProfileId(Long profileId) {
+
         this.profileId = profileId;
     }
 
@@ -124,5 +125,9 @@ public class Payment {
     }
 
     public Payment() {
+    }
+    public Payment(Long profileId, String cardNumber) {
+        this.profileId = profileId;
+        this.cardNumber = cardNumber;
     }
 }

@@ -27,12 +27,21 @@ public class Customer {
     private Integer zipCode;
     private String phoneNumber;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if(email != null) {
+            this.email = email;
+        }
     }
 
     public String getFirstName() {
@@ -40,7 +49,9 @@ public class Customer {
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        if(firstName != null) {
+            this.firstName = firstName;
+        }
     }
 
     public String getLastName() {
@@ -48,7 +59,9 @@ public class Customer {
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        if(lastName != null) {
+            this.lastName = lastName;
+        }
     }
 
     public Integer getAge() {
@@ -56,7 +69,9 @@ public class Customer {
     }
 
     public void setAge(Integer age) {
-        this.age = age;
+        if(age != null) {
+            this.age = age;
+        }
     }
 
     public String getAddress() {
@@ -64,7 +79,9 @@ public class Customer {
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        if(address != null) {
+            this.address = address;
+        }
     }
 
     public String getState() {
@@ -72,7 +89,9 @@ public class Customer {
     }
 
     public void setState(String state) {
-        this.state = state;
+        if(state !=null) {
+            this.state = state;
+        }
     }
 
     public Integer getZipCode() {
@@ -80,7 +99,9 @@ public class Customer {
     }
 
     public void setZipCode(Integer zipCode) {
-        this.zipCode = zipCode;
+        if(zipCode != null) {
+            this.zipCode = zipCode;
+        }
     }
 
     public String getPhoneNumber() {
@@ -88,7 +109,9 @@ public class Customer {
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        if(phoneNumber != null) {
+            this.phoneNumber = phoneNumber;
+        }
     }
 
     @Override
@@ -118,7 +141,8 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
     //doesn't have id because DB will generate id automatically
-    public Customer(String email, String firstName, String lastName, Integer age, String address, String state, Integer zipCode, String phoneNumber) {
+    public Customer(Long id,String email, String firstName, String lastName, Integer age, String address, String state, Integer zipCode, String phoneNumber) {
+       this.id = id;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;

@@ -67,7 +67,9 @@ public class Orders {
     }
 
     public void setProfileEmail(String profileEmail) {
-        this.profileEmail = profileEmail;
+        if(profileEmail != null) {
+            this.profileEmail = profileEmail;
+        }
     }
 
     public String getProfileNumber() {
@@ -75,7 +77,9 @@ public class Orders {
     }
 
     public void setProfileNumber(String profileNumber) {
-        this.profileNumber = profileNumber;
+        if(profileNumber != null) {
+            this.profileNumber = profileNumber;
+        }
     }
 
     public Long getWic() {
@@ -83,6 +87,8 @@ public class Orders {
     }
 
     public void setWic(Long wic) {
-        this.wic = wic;
+        if(wic != null) {
+            this.wic = wic;
+        }
     }
 }

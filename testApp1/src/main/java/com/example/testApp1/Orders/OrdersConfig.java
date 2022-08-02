@@ -12,7 +12,7 @@ public class OrdersConfig {
     @Bean
     CommandLineRunner commandLineRunner3(OrderRepository repository) {
         return args -> {
-            Orders order1 = new Orders();
+            Orders order1 = new Orders(1L,1L,"ivan@gmail.com","7088907640",1234L);
             repository.saveAll(List.of(order1));
         };
     }
